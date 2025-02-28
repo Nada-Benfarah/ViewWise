@@ -1,0 +1,94 @@
+<div class="create-agent-container">
+  <!-- En-tête de la page -->
+  <div class="create-agent-header">
+    <h1>Créer un nouvel agent</h1>
+  </div>
+
+  <!-- Formulaire de création d'agent -->
+  <form class="create-agent-form">
+    <!-- Section Nom -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Nom de l'agent</mat-label>
+        <input matInput [(ngModel)]="agent.name" name="name" required>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Description -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="agent.description" name="description" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Fournisseur IA -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Fournisseur IA</mat-label>
+        <mat-select [(ngModel)]="agent.provider" name="provider" required>
+          <mat-option value="anthropic">Anthropic</mat-option>
+          <mat-option value="openai">OpenAI</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Modèle IA -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Modèle IA</mat-label>
+        <mat-select [(ngModel)]="agent.model" name="model" required>
+          <mat-option value="claude-3.5">Claude 3.5 Sonnet</mat-option>
+          <mat-option value="gpt-4">GPT-4</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Instructions -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Instructions</mat-label>
+        <textarea matInput [(ngModel)]="agent.instructions" name="instructions" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Déclencheurs de conversation -->
+    <div class="form-section">
+      <mat-form-field appearance="outline">
+        <mat-label>Déclencheurs de conversation</mat-label>
+        <textarea matInput [(ngModel)]="agent.conversationStarters" name="conversationStarters" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Section Connaissance -->
+    <div class="form-section">
+      <h2>Connaissance</h2>
+      <div class="file-list">
+        <div class="file-item">
+          <span>eng2.docx</span>
+          <span>16 MB</span>
+        </div>
+        <div class="file-item">
+          <span>ENGLISH_CORR.docx</span>
+          <span>2 MB</span>
+        </div>
+      </div>
+      <button mat-raised-button color="primary">Téléverser des documents</button>
+    </div>
+
+    <!-- Section Outils -->
+    <div class="form-section">
+      <h2>Outils</h2>
+      <div class="tools-section">
+        <span>0/5 Activés</span>
+        <button mat-raised-button color="primary">+ Ajouter un outil</button>
+      </div>
+    </div>
+
+    <!-- Boutons d'action -->
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">Créer l'agent</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>

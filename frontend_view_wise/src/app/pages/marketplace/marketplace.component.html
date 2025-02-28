@@ -1,0 +1,28 @@
+<div class="marketplace-container">
+  <!-- En-tête du marketplace -->
+  <div class="marketplace-header">
+    <h1>Marketplace des Agents</h1>
+    <p>Découvrez et explorez une variété d'agents IA disponibles.</p>
+  </div>
+
+  <!-- Liste des agents -->
+  <div class="agent-list">
+    <div *ngFor="let agent of agents" class="agent-card">
+      <div class="agent-image">
+        <img [src]="agent.image" alt="{{ agent.name }}">
+      </div>
+      <div class="agent-details">
+        <h2>{{ agent.name }}</h2>
+        <p>{{ agent.description }}</p>
+        <div class="agent-rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-value">{{ agent.rating }}/5</span>
+        </div>
+        <div class="agent-price">
+          <span class="price">{{ agent.price }}</span>
+          <button mat-raised-button color="primary">Acheter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

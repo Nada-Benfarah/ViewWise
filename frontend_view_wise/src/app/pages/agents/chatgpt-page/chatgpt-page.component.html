@@ -1,0 +1,42 @@
+<div class="chat-container">
+  <!-- Colonne de conversation -->
+  <div class="chat-column">
+    <!-- En-tête de la conversation -->
+    <div class="chat-header">
+      <h1>ChatGPT</h1>
+    </div>
+
+    <!-- Zone de conversation -->
+    <div class="chat-messages">
+      <div *ngFor="let message of messages" class="message" [ngClass]="{'user': message.sender === 'user', 'bot': message.sender === 'bot'}">
+        <div class="message-content">
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Zone de saisie de message -->
+    <div class="chat-input">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Type your message...</mat-label>
+        <textarea matInput [(ngModel)]="newMessage" (keydown.enter)="sendMessage()"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Colonne d'historique -->
+  <div class="history-column">
+    <div class="history-header">
+      <h2>Historique des conversations</h2>
+    </div>
+    <div class="history-list">
+      <div *ngFor="let conversation of history" class="history-item" (click)="loadConversation(conversation)">
+        <div class="history-item-content">
+          <span class="history-item-title">{{ conversation.title }}</span>
+          <span class="history-item-date">{{ conversation.date }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
