@@ -13,6 +13,9 @@ import { NavGroupComponent } from './nav-group/nav-group.component';
 import { IconService } from '@ant-design/icons-angular';
 import {
   DashboardOutline,
+  OpenAIOutline,
+  HeatMapOutline,
+  DollarOutline,
   CreditCardOutline,
   LoginOutline,
   QuestionOutline,
@@ -20,7 +23,8 @@ import {
   FontSizeOutline,
   ProfileOutline,
   BgColorsOutline,
-  AntDesignOutline
+  AntDesignOutline,
+
 } from '@ant-design/icons-angular/icons';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
@@ -52,6 +56,9 @@ export class NavContentComponent implements OnInit {
     this.iconService.addIcon(
       ...[
         DashboardOutline,
+        OpenAIOutline,
+        HeatMapOutline,
+        DollarOutline,
         CreditCardOutline,
         FontSizeOutline,
         LoginOutline,

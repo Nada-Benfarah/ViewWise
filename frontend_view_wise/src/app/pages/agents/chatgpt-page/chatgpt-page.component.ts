@@ -4,28 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { IconDirective } from '@ant-design/icons-angular';
 
 @Component({
   selector: 'app-chatgpt-page',
-  imports: [ CommonModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule ],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, IconDirective],
   templateUrl: './chatgpt-page.component.html',
   styleUrl: './chatgpt-page.component.scss'
 })
 export class ChatgptPageComponent {
-  // Liste des messages de la conversation actuelle
-  messages: { sender: string, text: string }[] = [
-    { sender: 'bot', text: 'Hello! How can I assist you today?' }
+  chatItems = [
+    { icon: 'message', label: 'Conversation 1' },
+    { icon: 'message', label: 'Conversation 2' },
+    { icon: 'message', label: 'Conversation 3' }
   ];
+
+  // Liste des messages de la conversation actuelle
+  messages: { sender: string; text: string }[] = [{ sender: 'bot', text: 'Hello! How can I assist you today?' }];
 
   // Nouveau message saisi par l'utilisateur
   newMessage: string = '';
 
   // Historique des conversations
-  history: { title: string, date: string, messages: { sender: string, text: string }[] }[] = [
+  history: { title: string; date: string; messages: { sender: string; text: string }[] }[] = [
     {
       title: 'Conversation 1',
       date: '2023-10-01',
@@ -59,7 +60,7 @@ export class ChatgptPageComponent {
   }
 
   // Méthode pour charger une conversation depuis l'historique
-  loadConversation(conversation: { title: string, date: string, messages: { sender: string, text: string }[] }) {
+  loadConversation(conversation: { title: string; date: string; messages: { sender: string; text: string }[] }) {
     this.messages = conversation.messages;
   }
 }
