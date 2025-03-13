@@ -1,42 +1,70 @@
+
+
 <div class="chat-container">
-  <!-- Colonne de conversation -->
-  <div class="chat-column">
-    <!-- En-tête de la conversation -->
-    <div class="chat-header">
-      <h1>ChatGPT</h1>
-    </div>
-
-    <!-- Zone de conversation -->
-    <div class="chat-messages">
-      <div *ngFor="let message of messages" class="message" [ngClass]="{'user': message.sender === 'user', 'bot': message.sender === 'bot'}">
-        <div class="message-content">
-          {{ message.text }}
-        </div>
-      </div>
-    </div>
-
-    <!-- Zone de saisie de message -->
-    <div class="chat-input">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Type your message...</mat-label>
-        <textarea matInput [(ngModel)]="newMessage" (keydown.enter)="sendMessage()"></textarea>
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
-    </div>
-  </div>
-
-  <!-- Colonne d'historique -->
-  <div class="history-column">
-    <div class="history-header">
-      <h2>Historique des conversations</h2>
-    </div>
-    <div class="history-list">
-      <div *ngFor="let conversation of history" class="history-item" (click)="loadConversation(conversation)">
-        <div class="history-item-content">
-          <span class="history-item-title">{{ conversation.title }}</span>
-          <span class="history-item-date">{{ conversation.date }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <aside class="sidebar">
+    <button class="new-chat">+ Nouvelle discussion</button>
+    <ul class="chat-list">
+      <li class="navitem" *ngFor="let item of chatItems">
+        <i antIcon [type]="item.icon" theme="outline"></i> {{ item.label }}
+      </li>
+    </ul>
+  </aside>
+  <main class="chat-main">
+    <header class="chat-header">
+      <h1><i antIcon type="robot" theme="outline"></i> Nouvelle discussion</h1>
+    </header>
+    <section class="chat-messages">
+      <p>Hello! How can I assist you today?t...</p>
+    </section>
+    <footer class="chat-footer">
+      <input type="text" placeholder="Écrivez un message...">
+      <button><i antIcon type="send" theme="outline"></i></button>
+    </footer>
+  </main>
 </div>
+
+
+<!--<div class="chat-container">-->
+<!--  <div class="chat outgoing">-->
+<!--    <div class="chat-content">-->
+<!--      <div class="chat-details">-->
+<!--        <img src="https://i.ibb.co/tcgjS29/user.jpg" alt="Utilisateur">-->
+<!--        <p>Message de l'utilisateur</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="chat incoming">-->
+<!--    <div class="chat-content">-->
+<!--      <div class="chat-details">-->
+<!--        <img src="https://i.ibb.co/0VDMm2X/chatbot.jpg" alt="ChatBot">-->
+<!--        <p>Réponse du ChatBot</p>-->
+<!--      </div>-->
+<!--      <span class="material-symbols-rounded">content_copy</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="chat incoming">-->
+<!--    <div class="chat-content">-->
+<!--      <div class="chat-details">-->
+<!--        <img src="https://i.ibb.co/tcgjS29/user.jpg" alt="Utilisateur">-->
+<!--        <div class="loading-dots-animation">-->
+<!--          <div class="loading-dot" style="&#45;&#45;delay:0.2s;"></div>-->
+<!--          <div class="loading-dot" style="&#45;&#45;delay:0.3s;"></div>-->
+<!--          <div class="loading-dot" style="&#45;&#45;delay:0.4s;"></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <span class="material-symbols-rounded" onclick="Responsecopy(this)">content_copy</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="user-input-container">-->
+<!--  <div class="user-input-content">-->
+<!--    <div class="user-input-textarea">-->
+<!--      <textarea id="chat-input" placeholder="Entrez votre message ici" required></textarea>-->
+<!--      <span id="send-btn" class="material-symbols-rounded">send</span>-->
+<!--    </div>-->
+<!--    <div class="typing-controls">-->
+<!--      <span id="theme-btn" class="material-symbols-rounded">light_mode</span>-->
+<!--      <span id="delete-btn" class="material-symbols-rounded">delete</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

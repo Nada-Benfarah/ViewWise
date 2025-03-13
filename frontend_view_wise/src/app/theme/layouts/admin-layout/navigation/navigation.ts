@@ -30,10 +30,37 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Default',
         type: 'item',
         classes: 'nav-item',
-        url: '/dashboard/default',
+        url: '/dashboard',
         icon: 'dashboard',
         breadcrumbs: false
+      },     {
+        id: 'marketplace',
+        title: 'Marketplace',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/marketplace',
+        icon: 'heat-map',
+        breadcrumbs: false
+      },
+      {
+        id: 'agents',
+        title: 'Agents',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/agents',
+        icon: 'open-a-i',
+        breadcrumbs: false
+      },
+      {
+        id: 'prices',
+        title: 'Prices',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/pricing-plans',
+        icon: 'dollar',
+        breadcrumbs: false
       }
+
     ]
   },
   {

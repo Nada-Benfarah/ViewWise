@@ -23,25 +23,31 @@ import { FormsModule } from '@angular/forms';
 })
 export class CreateAgentComponent {
 
- // Modèle de l'agent
- agent = {
-  name: '',
-  description: '',
-  provider: '',
-  model: '',
-  instructions: '',
-  conversationStarters: ''
-};
+  agent = {
+    name: '',
+    description: '',
+    selectedOption: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: '',
+    gender: '',
+  };
 
-// Méthode pour créer l'agent
-createAgent() {
-  console.log('Agent créé :', this.agent);
-  // Ajoutez ici la logique pour enregistrer l'agent
-}
 
-// Méthode pour annuler la création
-cancel() {
-  console.log('Création annulée');
-  // Ajoutez ici la logique pour annuler (par exemple, rediriger vers une autre page)
-}
+
+
+
+
+  cancel() {
+    console.log('Formulaire annulé');
+    this.agent = {
+      name: '',
+      description: '',
+      selectedOption: '',
+      phoneNumber: '',
+      password: '',
+      confirmPassword: '',
+      gender: '',
+    };
+  }
 }

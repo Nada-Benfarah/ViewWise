@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 
@@ -11,34 +12,35 @@ import { CommonModule } from '@angular/common';
   styleUrl: './agents.component.scss'
 })
 export class AgentsComponent {
+  activeMenu: number | null = null;
+
+  constructor(private router: Router) {}
+
+
   agents = [
-    {
-      name: 'Agent Builder',
-      description: 'Un agent IA pour construire des projets complexes.',
-      image: 'https://via.placeholder.com/300'
-    },
-    {
-      name: 'Agent Assistant',
-      description: 'Un assistant IA pour la gestion des tâches quotidiennes.',
-      image: 'https://via.placeholder.com/300'
-    },
-    {
-      name: 'Agent Analytique',
-      description: 'Un agent IA pour l\'analyse de données et les rapports.',
-      image: 'https://via.placeholder.com/300'
-    },
-    {
-      name: 'Agent Créatif',
-      description: 'Un agent IA pour la génération de contenu créatif.',
-      image: 'https://via.placeholder.com/300'
-    }
+    { name: 'Agent Builder', description: 'Un agent IA pour construire des projets complexes.' },
+    { name: 'Agent Assistant', description: 'Un assistant IA pour la gestion des tâches quotidiennes.' },
+    { name: 'Agent Analytique', description: 'Un agent IA pour l\'analyse de données et les rapports.' },
+    { name: 'Agent Vocal', description: 'Un agent IA pour la génération de contenu créatif.' }
   ];
 
-  // Méthode pour créer un nouvel agent
-  createNewAgent() {
-    // Ajoutez ici la logique pour créer un nouvel agent
-    console.log('Créer un nouvel agent');
-    // Exemple : Rediriger vers une page de création d'agent
-    // this.router.navigate(['/create-agent']);
+  toggleMenu(index: number) {
+    this.activeMenu = this.activeMenu === index ? null : index;
+  }
+
+  editAgent(agent: any) {
+    console.log('Modifier :', agent.name);
+  }
+
+  chatAgent(agent: any) {
+    this.router.navigate(['/chatgpt-page']);
+  }
+
+  deleteAgent(agent: any) {
+    console.log('Supprimer :', agent.name);
+  }
+
+  goToCreateAgent() {
+    this.router.navigate(['/create-agent']);
   }
 }
